@@ -1,0 +1,6 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+tunnel.imos.ImosHandler,\
+tunnel.runner.ImosInitRunner,\
+tunnel.runner.RealTimeDataRunner,\
+tunnel.sdk.callBack.impl.CallBackProcExPfImpl,\
+  tunnel.sdk.callBack.impl.XpPlayerTranscodeCallbackPFImpl

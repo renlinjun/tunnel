@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.burst.websocket.TunnelMessageHandler,\
+com.burst.config.WebSocketConfig

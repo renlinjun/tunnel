@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress ALL -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>tunnel</artifactId>
+        <groupId>com.burst</groupId>
+        <version>1.0</version>
+    </parent>
+
+    <groupId>com.burst</groupId>
+    <artifactId>tunnel-core</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0</version>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/net.java.dev.jna/jna -->
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna</artifactId>
+            <version>5.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jna</groupId>
+            <artifactId>jna</artifactId>
+            <version>3.0.9</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.nativelibs4java/jnaerator-runtime -->
+        <!-- 谷歌开源jna调用类 -->
+        <dependency>
+            <groupId>com.nativelibs4java</groupId>
+            <artifactId>jnaerator-runtime</artifactId>
+            <version>0.12</version>
+        </dependency>
+        <dependency>
+            <groupId>com.burst</groupId>
+            <artifactId>tunnel-communication</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.burst</groupId>
+            <artifactId>tunnel-common</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
