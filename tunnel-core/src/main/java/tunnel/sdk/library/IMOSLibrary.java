@@ -23,6 +23,7 @@ public interface IMOSLibrary extends StdCallLibrary {
     //设置为false
     String result = System.setProperty("jna.protected","false");
     String debug = System.setProperty("jna.debug_load", "true");
+    //String encode = System.setProperty("jna.encoding", stringEncoding);
     //NativeLibrary JNA_NATIVE_LIB = NativeLibrary.getInstance("imos"+ File.separator+"redist"+File.separator+IMOSLibrary.JNA_LIBRARY_NAME);
     public static IMOSLibrary INSTANCE = Native.load(IMOSLibrary.JNA_LIBRARY_NAME, IMOSLibrary.class);
     /**
