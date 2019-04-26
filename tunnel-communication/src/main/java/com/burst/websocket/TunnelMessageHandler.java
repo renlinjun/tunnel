@@ -1,8 +1,12 @@
 package com.burst.websocket;
 
 
+import com.burst.cache.SessionCache;
+import com.tunnel.constants.WBMessageConverType;
 import com.tunnel.utils.JSONUtils;
+import com.tunnel.utils.URLTools;
 import org.springframework.stereotype.Component;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.socket.*;
 import org.springframework.web.socket.handler.AbstractWebSocketHandler;
 
@@ -21,12 +25,14 @@ public class TunnelMessageHandler extends AbstractWebSocketHandler {
     public static List<WebSocketSession> connedClient = new ArrayList<>();
 
     //连接建立
-    public  void afterConnectionEstablished(WebSocketSession session) throws Exception {
+    public void afterConnectionEstablished(WebSocketSession session) throws Exception {
+        //从URL上获取摄像机编码
+        String queryStr = session.getUri().getQuery();
+        //String szCameraCode = URLTools.getUriParamByName(queryStr,"szCameraCode");
         session.getAttributes().put("uuid",UUID.randomUUID().toString());
         System.out.println("连接建立:[ip="+session.getRemoteAddress()+",id="+session.getId()+"]");
-        String uid = (String) session.getAttributes().get("uuid");
-        System.out.println("uuid:"+uid);
         connedClient.add(session);
+        //SessionCache.sessionMap.put(szCameraCode,session);
     }
 
     //接收消息
@@ -66,5 +72,37 @@ public class TunnelMessageHandler extends AbstractWebSocketHandler {
                 }
             }
         }
+    }
+
+    /**
+     *
+     * 功能描述:
+     *      向所有连接的客户端发送消息,
+     * @auther:
+     * @date:
+     * @param:
+     *      obj 发送的数据对象
+     *      converType
+     * @return:
+     */
+    public static void sendAllConnectedClient(Object obj,int converType) {
+        AbstractWebSocketMessage message = null;
+        if(converType == WBMessageConverType.TEXT_TYPE) {
+            message = new TextMessage(JSONUtils.beanToJson(obj));
+        }
+        sendAllConnectedClient(message);
+    }
+
+    /**
+     *
+     * 功能描述:
+     *      向所有连接的客户端发送消息
+     * @auther:
+     * @date:
+     * @param:
+     * @return:
+     */
+    public static void sendAllConnectedClient(Object obj) {
+        sendAllConnectedClient(obj,WBMessageConverType.TEXT_TYPE);
     }
 }
