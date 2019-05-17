@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
  * @作者: 任琳珺
  * @时间: 2019/4/27 02:26
  */
-@Mapper
+//@Mapper
 public interface CarInfoMapper extends BaseMapper<VehicleData> {
 
 

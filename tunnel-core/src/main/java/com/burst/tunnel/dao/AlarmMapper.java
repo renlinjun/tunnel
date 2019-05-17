@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Mapper;
  * @作者: REN
  * @时间: 2019/5/14 18:12
  */
-@Mapper
-public interface AlarmMapper extends BaseMapper<VehicleData> {
+//@Mapper
+public interface AlarmMapper {
 
 }

@@ -10,7 +10,7 @@ import java.util.Map;
  * @作者: 任琳珺
  * @时间: 2019/5/7 16:52
  */
-@Mapper
+//@Mapper
 public interface CamInfoMapper {
     /***
      * 增加摄像机
