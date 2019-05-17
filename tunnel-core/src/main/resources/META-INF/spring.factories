@@ -1,6 +1,12 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-tunnel.imos.ImosHandler,\
-tunnel.runner.ImosInitRunner,\
-tunnel.runner.RealTimeDataRunner,\
-tunnel.sdk.callBack.impl.CallBackProcExPfImpl,\
-  tunnel.sdk.callBack.impl.XpPlayerTranscodeCallbackPFImpl
+com.burst.config.ExecutorConfig,\
+com.burst.config.TunnelProperties,\
+com.burst.config.VmServerProperties,\
+com.burst.socket.ActualInfoSocketServer,\
+com.burst.common.CurrentCarInfosCache,\
+com.burst.handler.PicHandler,\
+com.burst.handler.VehicleHandler,\
+com.burst.handler.XmlParse,\
+com.burst.thread.AlarmThread,\
+com.burst.config.MyBatisPlusConfig,\
+com.burst.config.DataSourceConfig

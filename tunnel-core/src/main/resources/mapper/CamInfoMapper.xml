@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.burst.tunnel.dao.CamInfoMapper">
+
+    <!-- 添加摄像机信息 -->
+    <insert id="addCam" parameterType="map" >
+        insert into came_info(id,came_code,came_location,came_type,ip_addr)
+        VALUES (
+            #{id},
+            #{cameCode},
+            #{cameLocation},
+            #{cameType},
+            #{tunnelId},
+            #{ipAddr}
+        )
+    </insert>
+    <!--查询摄像机列表-->
+    <select id="listCame" parameterType="map" resultType="map">
+        select id,came_code,came_localtion,came_type,tunnel_id,ip_addr
+        FROM  came_info where 1=1
+        <if test="tunnelId!=null and tunnelId!=''">
+            and tunnel_id = #{tunnelId}
+        </if>
+
+    </select>
+
+    <!--查询隧道下的摄像机列表-->
+    <select id="listCameByTunnel" parameterType="string" resultType="map">
+        select id,came_code,came_localtion,came_type,tunnel_id
+        FROM  came_info where tunnel_id = #{_parameter}
+    </select>
+</mapper>

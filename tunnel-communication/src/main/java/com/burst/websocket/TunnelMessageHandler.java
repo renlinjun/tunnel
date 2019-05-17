@@ -1,16 +1,15 @@
 package com.burst.websocket;
 
 
-import com.burst.cache.SessionCache;
-import com.tunnel.constants.WBMessageConverType;
-import com.tunnel.utils.JSONUtils;
-import com.tunnel.utils.URLTools;
+import cn.hutool.core.util.StrUtil;
+import com.burst.common.SessionCache;
+import com.bust.constants.WBMessageConverType;
+import com.bust.utils.JSONUtils;
+import com.bust.utils.URLTools;
 import org.springframework.stereotype.Component;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.socket.*;
 import org.springframework.web.socket.handler.AbstractWebSocketHandler;
 
-import javax.xml.soap.Text;
 import java.io.IOException;
 import java.util.*;
 
@@ -22,17 +21,19 @@ import java.util.*;
 @Component
 public class TunnelMessageHandler extends AbstractWebSocketHandler {
 
-    public static List<WebSocketSession> connedClient = new ArrayList<>();
-
     //连接建立
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
-        //从URL上获取摄像机编码
         String queryStr = session.getUri().getQuery();
-        //String szCameraCode = URLTools.getUriParamByName(queryStr,"szCameraCode");
+        String connectTypeStr = URLTools.getUriParamByName(queryStr,"connectType");
+        int connectType = 0;
+        if(!StrUtil.isEmpty(connectTypeStr)) {
+            connectType = Integer.parseInt(connectTypeStr);
+        }
+
         session.getAttributes().put("uuid",UUID.randomUUID().toString());
         System.out.println("连接建立:[ip="+session.getRemoteAddress()+",id="+session.getId()+"]");
-        connedClient.add(session);
-        //SessionCache.sessionMap.put(szCameraCode,session);
+        SessionCache.allConnedClient.add(session);
+        SessionCache.sessionMap.put(connectType,session);
     }
 
     //接收消息
@@ -47,7 +48,7 @@ public class TunnelMessageHandler extends AbstractWebSocketHandler {
 
     //连接断开以后
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
-        connedClient.remove(session);
+        SessionCache.allConnedClient.remove(session);
         System.out.println("断开连接:"+session.getRemoteAddress()+";状态码："+status);
     }
 
@@ -60,19 +61,23 @@ public class TunnelMessageHandler extends AbstractWebSocketHandler {
      * @param:
      * @return:
      */
-    public static void sendAllConnectedClient(AbstractWebSocketMessage message) {
-        for (WebSocketSession session : connedClient) {
-            if(session.isOpen()) {
-                try {
-                    //发送推送消息
-                    session.sendMessage(message);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    System.out.println("发送消息失败！");
+    public static void sendMessage2Client(AbstractWebSocketMessage message) {
+        for (WebSocketSession session : SessionCache.allConnedClient) {
+            synchronized (session) {
+                if (session.isOpen()) {
+                    try {
+                        //发送推送消息
+                        session.sendMessage(message);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        System.out.println("发送消息失败！");
+                    }
                 }
             }
         }
     }
+
+    public static void sendMessageByClientType(AbstractWebSocketMessage message, int clientType)  {}
 
     /**
      *
@@ -85,12 +90,18 @@ public class TunnelMessageHandler extends AbstractWebSocketHandler {
      *      converType
      * @return:
      */
-    public static void sendAllConnectedClient(Object obj,int converType) {
+    public static void sendMessage2Client(Object obj, int converType) {
         AbstractWebSocketMessage message = null;
         if(converType == WBMessageConverType.TEXT_TYPE) {
             message = new TextMessage(JSONUtils.beanToJson(obj));
+        }else if(converType == WBMessageConverType.BYTE_TYPE){
+            message = new BinaryMessage((byte[])obj);
         }
-        sendAllConnectedClient(message);
+        sendMessage2Client(message);
+    }
+
+    public static void sendByteMessage2Client(byte[] data) {
+        sendMessage2Client(data,WBMessageConverType.BYTE_TYPE);
     }
 
     /**
@@ -102,7 +113,7 @@ public class TunnelMessageHandler extends AbstractWebSocketHandler {
      * @param:
      * @return:
      */
-    public static void sendAllConnectedClient(Object obj) {
-        sendAllConnectedClient(obj,WBMessageConverType.TEXT_TYPE);
+    public static void sendTextMessage2Client(Object obj) {
+        sendMessage2Client(obj,WBMessageConverType.TEXT_TYPE);
     }
 }

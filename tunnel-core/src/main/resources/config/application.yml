@@ -1,0 +1,24 @@
+vm:
+  server:
+    addr: 172.17.11.146
+    port: 8800
+    username: loadmin
+    password: imos_123
+  szOrgCode: iccsid
+tunnel:
+  name: "北茹隧道"
+  size: 1
+  direction1:
+    in-tollgateId: 1
+    out-tollgateId: 2
+  direction2:
+    in-tollgateId: 1
+    out-tollgateId: 2
+  lane-num: 3
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    com.burst.tunnel.dao: debug

@@ -1,9 +1,8 @@
 package test;
 
-import tunnel.sdk.constanst.IMOSErrCodeEnum;
-import tunnel.sdk.library.IMOSLibrary;
-import tunnel.sdk.library.SDKLibrary;
-import tunnel.sdk.struct.imos.TagLoginInfo;
+import com.burst.sdk.constanst.IMOSErrCodeEnum;
+import com.burst.sdk.library.IMOSLibrary;
+import com.burst.sdk.struct.imos.TagLoginInfo;
 
 /**
  * @描述:n
@@ -28,7 +27,7 @@ public class DllTest {
 
         int initResult = IMOSLibrary.INSTANCE.IMOS_Initiate(serverAdd.getBytes(),8800,1,0);
         System.out.println("初始化结果:"+initResult+"---是否成功："+(initResult== IMOSErrCodeEnum.ERR_COMMON_SUCCEED));
-        /*System.out.printf("十六进制：");
+        System.out.printf("十六进制：");
         System.out.printf("%x\n",initResult);
         if(initResult==IMOSErrCodeEnum.ERR_COMMON_SUCCEED) {
             TagLoginInfo.ByReference logInfoReference = new TagLoginInfo.ByReference();
@@ -36,7 +35,7 @@ public class DllTest {
             //IMOSLibrary.INSTANCE.IMOS_CleanUp()
             System.out.println(new String(logInfoReference.szOrgCode));
             System.out.println(loginResult);
-        }*/
+        }
 
     }
 }

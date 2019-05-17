@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.burst.tunnel.dao.TunnelMapper">
+
+    <!-- 添加隧道基本信息 -->
+    <insert id="addTunnelBase" parameterType="map" >
+        insert into tunnel_base(id,tunnel_name,tunnel_size,lane_num,start_mileage,mileage_space,direction,direction_code)
+         VALUES (
+            #{id},
+            #{tunnelName},
+            #{tunnelSize},
+            #{laneNum},
+            #{startMileage},
+            #{mileageSpace},
+            #{direction},
+            #{directionCode}
+         )
+    </insert>
+
+    <select id="queryTunnelBaseInfo" parameterType="map" resultType="map">
+        SELECT id,tunnel_name,tunnel_size,lane_num,start_mileage,mileage_space,direction,direction_code
+        FROM tunnel_base where 1=1
+        <if test="direction !=null and direction!=''">
+            and direction = #{direction}
+        </if>
+        <if test="direction_code !=null and direction_code!=''">
+            and direction_code = #{directionCode}
+        </if>
+    </select>
+
+</mapper>

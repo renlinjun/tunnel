@@ -23,11 +23,6 @@
             <artifactId>jna</artifactId>
             <version>5.1.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.sun.jna</groupId>
-            <artifactId>jna</artifactId>
-            <version>3.0.9</version>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/com.nativelibs4java/jnaerator-runtime -->
         <!-- 谷歌开源jna调用类 -->
         <dependency>
@@ -44,6 +39,39 @@
             <groupId>com.burst</groupId>
             <artifactId>tunnel-common</artifactId>
             <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.burst</groupId>
+            <artifactId>tunnel-model</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>2.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.8</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jcodec</groupId>
+            <artifactId>jcodec</artifactId>
+            <version>0.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jcodec</groupId>
+            <artifactId>jcodec-javase</artifactId>
+            <version>0.2.3</version>
         </dependency>
     </dependencies>
 
