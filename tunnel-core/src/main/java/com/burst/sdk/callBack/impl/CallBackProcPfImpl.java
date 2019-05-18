@@ -1,7 +1,7 @@
 package com.burst.sdk.callBack.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.burst.common.SystemCache;
+import com.burst.cache.SystemCache;
 import com.burst.sdk.struct.imos.TagVehicleAlarmData;
 import com.burst.sdk.struct.imos.TagVehicleData;
 import com.burst.websocket.TunnelMessageHandler;

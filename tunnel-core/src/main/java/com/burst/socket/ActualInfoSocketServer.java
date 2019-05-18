@@ -18,7 +18,7 @@ import java.util.HashMap;
 public class ActualInfoSocketServer {
 
     //用一个总的map来存放数据
-    public static HashMap<String, String> map = new HashMap<>();
+    //public static HashMap<String, String> map = new HashMap<>();
 
     @Autowired
     private VehicleHandler vehicleHandler;

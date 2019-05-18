@@ -1,7 +1,7 @@
 package com.burst.tunnel.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.burst.common.ResponseData;
+import com.burst.cache.ResponseData;
 import com.burst.config.TunnelProperties;
 import com.burst.tunnel.dao.CamInfoMapper;
 import com.burst.tunnel.dao.TunnelMapper;
@@ -9,7 +9,6 @@ import com.burst.tunnel.service.ICamService;
 import com.bust.constants.ResultConstants;
 import com.bust.utils.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.List;
@@ -20,10 +19,10 @@ import java.util.Map;
  * @作者: REN
  * @时间: 2019/5/7 16:45
  */
-@Component
+//@Component
 public class CamServiceImpl implements ICamService {
 
-    @Autowired
+    //@Autowired
     private CamInfoMapper camInfoMapper;
     @Autowired
     private TunnelMapper tunnelMapper;

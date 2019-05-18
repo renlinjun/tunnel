@@ -1,6 +1,6 @@
 package com.burst.handler;
 
-import com.burst.common.CurrentCarInfosCache;
+import com.burst.cache.CurrentCarInfosCache;
 import com.burst.core.VehicleData;
 import com.burst.websocket.TunnelMessageHandler;
 import com.bust.constants.DataType;
@@ -11,7 +11,6 @@ import org.dom4j.DocumentException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.TextMessage;
 import com.burst.core.PushData;
@@ -40,7 +39,7 @@ public class VehicleHandler {
         TunnelMessageHandler.sendTextMessage2Client(textMessage);
     }
 
-    @Async("vehicleDataExecutor")
+    //@Async("vehicleDataExecutor")
     public void vehicleDataHandle(byte[] datas) {
         //协议版本
         byte[] protocolByte = new byte[4];

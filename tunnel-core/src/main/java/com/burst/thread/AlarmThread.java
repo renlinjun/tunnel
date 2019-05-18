@@ -1,6 +1,6 @@
 package com.burst.thread;
 
-import com.burst.common.CurrentCarInfosCache;
+import com.burst.cache.CurrentCarInfosCache;
 import com.burst.core.VehicleData;
 import com.burst.handler.VehicleHandler;
 import com.burst.tunnel.dao.AlarmMapper;
@@ -22,7 +22,7 @@ import java.util.Set;
 public class AlarmThread extends Thread {
 
 
-    @Autowired
+    //@Autowired
     private AlarmMapper alarmMapper;
     @Autowired
     private CurrentCarInfosCache currentCarInfosCache;

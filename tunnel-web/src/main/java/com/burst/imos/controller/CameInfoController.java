@@ -1,10 +1,8 @@
 package com.burst.imos.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.burst.common.RequestData;
-import com.burst.common.ResponseData;
-import com.burst.tunnel.service.ICamService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.burst.cache.RequestData;
+import com.burst.cache.ResponseData;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("came")
 public class CameInfoController {
-    @Autowired
-    private ICamService camService;
+    //@Autowired
+    //private ICamService camService;
 
     /***
      * 增加摄像机
@@ -29,7 +27,8 @@ public class CameInfoController {
     @RequestMapping(value = "/addCame",method = RequestMethod.POST)
     public ResponseData addCame(@RequestBody RequestData requestData) {
         JSONObject json = requestData.getData();
-        return camService.addCam(json);
+        //return camService.addCam(json);
+        return null;
     }
 
     /**
@@ -44,6 +43,7 @@ public class CameInfoController {
     @RequestMapping(value = "/listCameTree",method = RequestMethod.POST)
     public ResponseData listCameTree(@RequestBody RequestData requestData) {
         JSONObject json = requestData.getData();
-        return camService.listCameTree(json);
+        //return camService.listCameTree(json);
+        return null;
     }
 }

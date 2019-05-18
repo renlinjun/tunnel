@@ -3,10 +3,8 @@ com.burst.config.ExecutorConfig,\
 com.burst.config.TunnelProperties,\
 com.burst.config.VmServerProperties,\
 com.burst.socket.ActualInfoSocketServer,\
-com.burst.common.CurrentCarInfosCache,\
+com.burst.cache.CurrentCarInfosCache,\
 com.burst.handler.PicHandler,\
 com.burst.handler.VehicleHandler,\
 com.burst.handler.XmlParse,\
-com.burst.thread.AlarmThread,\
-com.burst.config.MyBatisPlusConfig,\
-com.burst.config.DataSourceConfig
+com.burst.thread.AlarmThread

@@ -1,7 +1,7 @@
 package com.burst.tunnel.service;
 
 import com.alibaba.fastjson.JSONObject;
-import com.burst.common.ResponseData;
+import com.burst.cache.ResponseData;
 
 /**
  * @描述:

@@ -1,10 +1,9 @@
 package com.burst.imos.controller;
 
-import com.burst.common.RequestData;
-import com.burst.common.ResponseData;
+import com.burst.cache.RequestData;
+import com.burst.cache.ResponseData;
 import com.burst.exception.CustomException;
 import com.burst.tunnel.service.ICarInfoService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("carInfo")
 public class CarInfoController {
 
-    @Autowired
+    //@Autowired
     private ICarInfoService carInfoService;
     @RequestMapping("/getCarInfo")
     public ResponseData getCurrentCarInfo(@RequestBody RequestData requestData) {

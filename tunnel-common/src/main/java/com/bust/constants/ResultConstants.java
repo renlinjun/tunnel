@@ -1,7 +1,7 @@
 package com.bust.constants;
 
 
-import com.burst.common.ResponseData;
+import com.burst.cache.ResponseData;
 
 /**
  * 请求返回的结果枚举

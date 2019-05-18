@@ -1,7 +1,7 @@
 package com.burst.tunnel.service;
 
 import com.alibaba.fastjson.JSONObject;
-import com.burst.common.ResponseData;
+import com.burst.cache.ResponseData;
 import com.burst.core.VehicleData;
 import com.burst.exception.CustomException;
 

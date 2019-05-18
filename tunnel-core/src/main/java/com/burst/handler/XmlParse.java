@@ -2,7 +2,7 @@ package com.burst.handler;
 
 import com.burst.config.TunnelConfig;
 import com.burst.config.TunnelProperties;
-import com.burst.common.TunnelCache;
+import com.burst.cache.TunnelCache;
 import com.burst.core.VehicleData;
 import com.burst.utils.CarOptionUtils;
 import org.dom4j.Document;
@@ -12,9 +12,7 @@ import org.dom4j.io.SAXReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 
 /**
  * @描述: 解析实时xml数据
@@ -28,7 +26,7 @@ public class XmlParse {
     private TunnelProperties tunnelProperties;
 
     public VehicleData parse(byte[] data) throws DocumentException, UnsupportedEncodingException {
-
+        System.out.println("过车数据："+new String(data,"UTF-8"));
         VehicleData vehicleData = new VehicleData();
         //默认不是两客一危车辆
         vehicleData.setPassengerDanger(false);
@@ -91,4 +89,7 @@ public class XmlParse {
         vehicleData.setVehicleSpeed(Integer.parseInt(root.elementTextTrim("vehicleSpeed")));
         return vehicleData;
     }
+
+
+
 }

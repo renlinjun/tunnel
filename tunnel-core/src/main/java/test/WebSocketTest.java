@@ -1,6 +1,6 @@
 package test;
 
-import com.burst.common.SessionCache;
+import com.burst.cache.SessionCache;
 import com.burst.core.PushData;
 import com.burst.core.VehicleData;
 import com.burst.websocket.TunnelMessageHandler;

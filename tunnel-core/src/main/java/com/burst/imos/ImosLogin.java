@@ -1,6 +1,6 @@
 package com.burst.imos;
 
-import com.burst.common.SystemCache;
+import com.burst.cache.SystemCache;
 import com.burst.config.VmServerProperties;
 import com.burst.exception.CustomException;
 import com.burst.sdk.constanst.IMOSErrCodeEnum;

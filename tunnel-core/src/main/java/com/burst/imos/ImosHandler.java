@@ -2,7 +2,7 @@ package com.burst.imos;
 
 import cn.hutool.core.util.StrUtil;
 import com.burst.bayonet.BayonetHandler;
-import com.burst.common.SystemCache;
+import com.burst.cache.SystemCache;
 import com.burst.exception.CustomException;
 import com.burst.sdk.callBack.CallBackProcExPf;
 import com.burst.sdk.constanst.IMOSDefLibrary;

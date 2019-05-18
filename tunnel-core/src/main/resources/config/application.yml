@@ -9,12 +9,12 @@ tunnel:
   name: "北茹隧道"
   size: 1
   direction1:
-    in-tollgateId: 1
-    out-tollgateId: 2
+    in-tollgateId: 1-15-1
+    out-tollgateId: HC161-01
   direction2:
     in-tollgateId: 1
     out-tollgateId: 2
-  lane-num: 3
+  lane-num: 2
 mybatis-plus:
   mapper-locations: classpath:/mapper/*.xml
   configuration:

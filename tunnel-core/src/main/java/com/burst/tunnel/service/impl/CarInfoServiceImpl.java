@@ -2,14 +2,13 @@ package com.burst.tunnel.service.impl;
 
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSONObject;
-import com.burst.common.ResponseData;
+import com.burst.cache.ResponseData;
 import com.burst.core.VehicleData;
 import com.burst.exception.CustomException;
-import com.burst.common.CurrentCarInfosCache;
+import com.burst.cache.CurrentCarInfosCache;
 import com.burst.tunnel.dao.CarInfoMapper;
 import com.burst.tunnel.service.ICarInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.*;
 
@@ -18,12 +17,12 @@ import java.util.*;
  * @作者: REN
  * @时间: 2019/5/6 09:54
  */
-@Service
+//@Service
 public class CarInfoServiceImpl implements ICarInfoService {
 
     @Autowired
     private CurrentCarInfosCache currentCarInfos;
-    @Autowired
+    //@Autowired
     private CarInfoMapper carInfoMapper;
 
     /**

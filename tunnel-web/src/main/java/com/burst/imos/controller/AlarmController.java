@@ -1,7 +1,7 @@
 package com.burst.imos.controller;
 
-import com.burst.common.RequestData;
-import com.burst.common.ResponseData;
+import com.burst.cache.RequestData;
+import com.burst.cache.ResponseData;
 import com.bust.constants.ResultConstants;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

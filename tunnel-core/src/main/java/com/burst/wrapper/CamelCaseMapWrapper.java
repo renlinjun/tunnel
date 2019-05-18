@@ -1,8 +1,5 @@
 package com.burst.wrapper;
 
-import cn.hutool.core.util.StrUtil;
-import org.apache.ibatis.reflection.MetaObject;
-import org.apache.ibatis.reflection.wrapper.MapWrapper;
 
 import java.util.Map;
 
@@ -11,8 +8,9 @@ import java.util.Map;
  * @作者: REN
  * @时间: 2018/11/19 17:45
  */
-public class CamelCaseMapWrapper extends MapWrapper {
-    public CamelCaseMapWrapper(MetaObject metaObject, Map<String, Object> map) {
+//public class CamelCaseMapWrapper extends MapWrapper {
+public class CamelCaseMapWrapper {
+    /*public CamelCaseMapWrapper(MetaObject metaObject, Map<String, Object> map) {
         super(metaObject,map);
     }
 
@@ -22,5 +20,5 @@ public class CamelCaseMapWrapper extends MapWrapper {
             return StrUtil.toCamelCase(name);
         }
         return name;
-    }
+    }*/
 }

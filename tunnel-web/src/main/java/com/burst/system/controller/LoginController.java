@@ -1,8 +1,8 @@
 package com.burst.system.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.burst.common.RequestData;
-import com.burst.common.ResponseData;
+import com.burst.cache.RequestData;
+import com.burst.cache.ResponseData;
 import com.burst.exception.CustomException;
 import com.burst.imos.ImosLogin;
 import com.burst.system.service.ILoginService;

@@ -1,14 +1,13 @@
 package com.burst.tunnel.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.burst.common.CurrentCarInfosCache;
-import com.burst.common.ResponseData;
+import com.burst.cache.CurrentCarInfosCache;
+import com.burst.cache.ResponseData;
 import com.burst.tunnel.dao.TunnelMapper;
 import com.burst.tunnel.service.ITunnelService;
 import com.bust.constants.ResultConstants;
 import com.bust.utils.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
@@ -18,10 +17,10 @@ import java.util.Map;
  * @作者: REN
  * @时间: 2019/5/7 16:43
  */
-@Component
+//@Component
 public class TunnelServiceImpl implements ITunnelService {
 
-    @Autowired
+    //@Autowired
     private TunnelMapper tunnelMapper;
     @Autowired
     private CurrentCarInfosCache carInfosCache;

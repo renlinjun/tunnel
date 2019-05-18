@@ -11,5 +11,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class PicHandler {
 
-    public void save(byte[] picData, ImageData imageData) {}
+    public void save(byte[] picData, ImageData imageData) {
+
+
+    }
 }

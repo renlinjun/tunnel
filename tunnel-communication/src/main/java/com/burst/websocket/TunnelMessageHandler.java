@@ -2,7 +2,7 @@ package com.burst.websocket;
 
 
 import cn.hutool.core.util.StrUtil;
-import com.burst.common.SessionCache;
+import com.burst.cache.SessionCache;
 import com.bust.constants.WBMessageConverType;
 import com.bust.utils.JSONUtils;
 import com.bust.utils.URLTools;
@@ -25,11 +25,11 @@ public class TunnelMessageHandler extends AbstractWebSocketHandler {
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         String queryStr = session.getUri().getQuery();
         String connectTypeStr = URLTools.getUriParamByName(queryStr,"connectType");
+        //默认类型
         int connectType = 0;
         if(!StrUtil.isEmpty(connectTypeStr)) {
             connectType = Integer.parseInt(connectTypeStr);
         }
-
         session.getAttributes().put("uuid",UUID.randomUUID().toString());
         System.out.println("连接建立:[ip="+session.getRemoteAddress()+",id="+session.getId()+"]");
         SessionCache.allConnedClient.add(session);
@@ -63,7 +63,6 @@ public class TunnelMessageHandler extends AbstractWebSocketHandler {
      */
     public static void sendMessage2Client(AbstractWebSocketMessage message) {
         for (WebSocketSession session : SessionCache.allConnedClient) {
-            synchronized (session) {
                 if (session.isOpen()) {
                     try {
                         //发送推送消息
@@ -73,7 +72,6 @@ public class TunnelMessageHandler extends AbstractWebSocketHandler {
                         System.out.println("发送消息失败！");
                     }
                 }
-            }
         }
     }
 

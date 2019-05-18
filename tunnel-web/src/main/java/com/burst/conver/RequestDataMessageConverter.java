@@ -5,9 +5,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.burst.common.MessageData;
-import com.burst.common.RequestData;
-import com.burst.common.ResponseData;
+import com.burst.cache.MessageData;
+import com.burst.cache.RequestData;
+import com.burst.cache.ResponseData;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.HttpOutputMessage;
 import org.springframework.http.MediaType;
